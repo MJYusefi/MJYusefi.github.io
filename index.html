@@ -379,13 +379,15 @@
                 
                 <!-- 👇 EDIT YOUR BIOGRAPHY TEXT HERE 👇 -->
                 <p class="bio-text">
-                    Welcome to my academic space! My work lies at the intersection of <strong>power systems</strong>, <strong>renewable energy</strong>, and <strong>data-driven energy engineering</strong>. I focus on how modern power grids can reliably integrate distributed energy resources and storage while enhancing efficiency, reliability, and sustainability.
+                    Welcome to my academic space! 
                 </p>
                 <p class="bio-text">
-                    I am a recent M.Sc. graduate in Electrical Engineering – Power Systems from Amirkabir University of Technology (Tehran, Iran), where I worked as a research assistant at the FACTS Laboratory. My research has centered on techno-economic planning of <strong>Mobile Battery Energy Storage Systems</strong> for microgrids and distribution networks, with strong links to smart grids, electric mobility, and sustainable operation.
+                    I am an undergraduate student in <strong>Electrical Engineering - Telecommunication Systems</strong> at Sharif University of Technology (Tehran, Iran).
                 </p>
-                <!-- 👆 END BIOGRAPHY EDIT 👆 -->
 
+                <p class="bio-text">
+                    My research interests lie at the intersection of <strong>Machine Learning</strong>, <strong>Control Systems</strong>, and <strong>Telecommunication Systems</strong>.
+                </p>
                 <p class="bio-text">
                     If you are interested in my background, feel free to explore the tabs above: a structured <strong>CV</strong>, detailed <strong>Research</strong> activities, and a list of my <strong>Publications</strong>.
                 </p>
@@ -396,14 +398,17 @@
                 <h1>Curriculum Vitae</h1>
                 
                 <h2>Education</h2>
+                
+                <!-- B.Sc. Section -->
                 <div class="cv-item">
-                    <h3 id="msc-degree"></h3> <!-- Updated by JS -->
-                    <span class="cv-meta" id="msc-uni"></span>
-                    <p id="msc-desc"></p>
-                </div>
-                <div class="cv-item">
-                    <h3 id="bsc-degree"></h3> <!-- Updated by JS -->
+                    <h3 id="bsc-degree"></h3> 
                     <span class="cv-meta" id="bsc-uni"></span>
+                </div>
+                
+                <!-- Secondary Education Section -->
+                <div class="cv-item">
+                    <h3 id="sc-degree"></h3> 
+                    <span class="cv-meta" id="sc-school"></span>
                 </div>
 
                 <h2>Technical Skills</h2>
@@ -421,49 +426,17 @@
             <!-- RESEARCH SECTION -->
             <section id="research" class="page-section">
                 <h1>Research Interests & Projects</h1>
-                <p>My primary research focus is on the modernization of power grids through energy storage integration and intelligent planning.</p>
-
-                <!-- 👇 EDIT RESEARCH ITEMS HERE 👇 -->
-                <div class="card">
-                    <h3>Mobile Battery Energy Storage Systems (MBESS)</h3>
-                    <p>Investigating the economic feasibility and technical benefits of deploying mobile battery units in distribution networks. This includes routing optimization, sizing, and scheduling to enhance grid resilience during outages.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Microgrid Resilience & Optimization</h3>
-                    <p>Developing algorithms to optimize the operation of isolated and grid-connected microgrids, ensuring stability and minimizing operational costs using advanced optimization techniques.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Data-Driven Energy Management</h3>
-                    <p>Utilizing machine learning and data analytics to predict load patterns and renewable generation, improving the decision-making process for grid operators.</p>
-                </div>
+                <!-- 👇 EDIT RESEARCH HERE 👇 -->
+                <p>There is nothing yet</p>
                 <!-- 👆 END RESEARCH EDIT 👆 -->
             </section>
 
             <!-- PUBLICATIONS SECTION -->
             <section id="publications" class="page-section">
                 <h1>Publications</h1>
-                <p>Selected list of conference papers and journal articles.</p>
-
+                
                 <!-- 👇 EDIT PUBLICATIONS HERE 👇 -->
-                <div class="card">
-                    <a href="#" class="pub-title">Techno-economic planning of Mobile Battery Energy Storage Systems for Microgrids</a>
-                    <div class="pub-authors"><strong>Seyed Reza Moghadasi</strong>, [Co-Author Name], [Supervisor Name]</div>
-                    <div class="pub-journal">IEEE Transactions on Power Systems (Under Review), 2024</div>
-                </div>
-
-                <div class="card">
-                    <a href="#" class="pub-title">Resilience Enhancement of Distribution Networks using Transportable Energy Storage</a>
-                    <div class="pub-authors"><strong>Seyed Reza Moghadasi</strong>, [Co-Author Name]</div>
-                    <div class="pub-journal">International Conference on Smart Grids (ICSG), 2023</div>
-                </div>
-
-                <div class="card">
-                    <a href="#" class="pub-title">Optimal Scheduling of Distributed Energy Resources in Active Distribution Networks</a>
-                    <div class="pub-authors">[Co-Author Name], <strong>Seyed Reza Moghadasi</strong></div>
-                    <div class="pub-journal">Journal of Energy Storage, 2023</div>
-                </div>
+                <p>There is nothing yet</p>
                 <!-- 👆 END PUBLICATIONS EDIT 👆 -->
             </section>
 
@@ -490,17 +463,17 @@
             linkedin: "https://www.linkedin.com/in/mohammad-javad-yoosefi-656572246/",  // Add your LinkedIn link here
 
             // --- Home Page ---
-            welcomeTitle: "Welcome to my intrdoction website ⚡🤖🌱",
+            welcomeTitle: "Welcome to my intrdoction website ⚡🤖",
 
             // --- CV: Education ---
-            msc: {
+            bsc: {
                 degree: "B.Sc. in Electrical Engineering (Telecommunications systems)",
                 university: "Sharif University of Technology | 2023 - now",
                 // description: "Thesis: Techno-economic planning of Mobile Battery Energy Storage Systems."
             },
-            bsc: {
-                degree: "B.Sc. in Electrical Engineering",
-                university: "Sharif University of Technology | 2023 - now"
+            sc: {
+                degree: "Secondary Education in Sampad (National Organization for Development of Exceptional Talents)",
+                school: "Ejei 1 - | 2017 - 2023"
             },
 
             // --- CV: Skills (Add or remove items in this list) ---
@@ -541,11 +514,12 @@
             safeSetHref('link-linkedin', userConfig.linkedin);
 
             // 3. Inject CV - Education
-            safeSetText('msc-degree', userConfig.msc.degree);
-            safeSetText('msc-uni', userConfig.msc.university);
-            safeSetText('msc-desc', userConfig.msc.description);
+            // Updated to use B.Sc. and Secondary Education (SC)
             safeSetText('bsc-degree', userConfig.bsc.degree);
             safeSetText('bsc-uni', userConfig.bsc.university);
+            
+            safeSetText('sc-degree', userConfig.sc.degree);
+            safeSetText('sc-school', userConfig.sc.school);
 
             // 4. Inject CV - Experience
             safeSetText('exp-role', userConfig.experience.role);
