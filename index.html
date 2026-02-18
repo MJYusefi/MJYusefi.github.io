@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Introduction</title>
+    <title>Seyed Reza Moghadasi - Profile</title>
     <style>
         /* --- Reset & Base Styles --- */
         * {
@@ -14,7 +14,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f4f8; /* Light blue-grey background */
+            background-color: #f0f4f8;
             color: #333;
             line-height: 1.6;
         }
@@ -26,7 +26,7 @@
         }
 
         a:hover {
-            color: #2563eb; /* Blue hover */
+            color: #2563eb;
         }
 
         /* --- Header --- */
@@ -51,6 +51,7 @@
             font-weight: 700;
             font-size: 1.1rem;
             color: #1f2937;
+            cursor: pointer;
         }
         
         .logo span {
@@ -68,13 +69,19 @@
         nav a {
             font-size: 0.95rem;
             color: #4b5563;
+            cursor: pointer;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            color: #2563eb;
         }
 
         nav a.active {
             color: #2563eb;
             font-weight: 600;
             border-bottom: 2px solid #2563eb;
-            padding-bottom: 2px;
         }
 
         /* --- Main Layout --- */
@@ -84,17 +91,19 @@
             padding: 0 1.5rem;
             display: flex;
             gap: 2rem;
-            align-items: flex-start; /* Aligns items to top */
+            align-items: flex-start;
         }
 
-        /* --- Sidebar (Profile Card) --- */
+        /* --- Sidebar --- */
         .sidebar {
-            flex: 0 0 300px; /* Fixed width sidebar */
+            flex: 0 0 300px;
             background: white;
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             text-align: center;
+            position: sticky; /* Keeps sidebar visible while scrolling content */
+            top: 90px;
         }
 
         .profile-pic-container {
@@ -102,7 +111,6 @@
             height: 150px;
             margin: 0 auto 1.5rem auto;
             border-radius: 50%;
-            /* Gradient placeholder if no image */
             background: linear-gradient(135deg, #60a5fa, #34d399); 
             overflow: hidden;
             display: flex;
@@ -149,7 +157,7 @@
             align-items: center;
             gap: 10px;
             font-size: 0.9rem;
-            color: #3b82f6; /* Link blue */
+            color: #3b82f6;
             padding: 0.5rem;
             border-radius: 6px;
             transition: background 0.2s;
@@ -166,15 +174,32 @@
             opacity: 0.8;
         }
 
-        /* --- Main Content Area --- */
+        /* --- Content Area --- */
         .content {
-            flex: 1; /* Takes remaining space */
+            flex: 1;
             background: white;
             padding: 3rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            min-height: 500px;
         }
 
+        /* Page Sections Logic */
+        .page-section {
+            display: none; /* Hidden by default */
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .page-section.active {
+            display: block; /* Show when active */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Typography & Elements --- */
         h1 {
             font-size: 1.8rem;
             color: #111827;
@@ -182,9 +207,29 @@
             line-height: 1.3;
         }
 
-        .bio-text {
+        h2 {
+            font-size: 1.5rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f3f4f6;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
             color: #374151;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        p {
+            color: #374151;
+            margin-bottom: 1rem;
             font-size: 1rem;
             text-align: justify;
         }
@@ -193,109 +238,277 @@
             color: #111827;
         }
 
+        /* --- CV Specific Styles --- */
+        .cv-item {
+            margin-bottom: 1.5rem;
+        }
+        .cv-meta {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .tag {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* --- Research/Pubs Specific Styles --- */
+        .card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .pub-title {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .pub-authors {
+            font-size: 0.9rem;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+        .pub-journal {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            font-style: italic;
+        }
+
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
             }
-            
             .sidebar {
                 width: 100%;
                 flex: none;
+                position: static;
             }
-
             .header-content {
                 flex-direction: column;
                 gap: 1rem;
                 text-align: center;
             }
-            
             .logo span {
-                display: block; /* Stack title on mobile */
+                display: block; 
+            }
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navigation -->
+    <!-- Header -->
     <header>
         <div class="header-content">
-            <div class="logo">
-                Your Name <span>Intelligent Power & Renewable Energy Systems</span>
+            <div class="logo" onclick="switchTab('home')">
+                Seyed Reza Moghadasi <span>Intelligent Power & Renewable Energy</span>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">CV</a></li>
-                    <li><a href="#">Research</a></li>
-                    <li><a href="#">Publications</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="#home" id="nav-home" class="active" onclick="switchTab('home')">Home</a></li>
+                    <li><a href="#cv" id="nav-cv" onclick="switchTab('cv')">CV</a></li>
+                    <li><a href="#research" id="nav-research" onclick="switchTab('research')">Research</a></li>
+                    <li><a href="#publications" id="nav-publications" onclick="switchTab('publications')">Publications</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content Container -->
     <div class="container">
         
-        <!-- Left Sidebar -->
+        <!-- Sidebar (Profile) -->
         <aside class="sidebar">
             <div class="profile-pic-container">
-                <!-- Replace 'src' with your actual image file, e.g., 'me.jpg' -->
-                <!-- If the image fails to load, the gradient background shows -->
+                <!-- Replace with your image file -->
                 <img src="profile.jpg" alt="Profile Photo" class="profile-pic" onerror="this.style.display='none'">
             </div>
             
-            <h2 class="profile-name">Your Name</h2>
+            <h2 class="profile-name">Seyed Reza Moghadasi</h2>
             <p class="profile-role">Researcher - Power & Renewable<br>Energy Systems</p>
-            <p class="profile-location">Your City, Country</p>
+            <p class="profile-location">Babolsar, Iran</p>
 
             <div class="social-links">
                 <a href="mailto:your.email@example.com" class="social-link">
-                    <!-- Email SVG Icon -->
                     <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                     Email
                 </a>
-                
-                <a href="https://github.com/MJYusefi" target="_blank" class="social-link">
-                    <!-- GitHub SVG Icon -->
+                <a href="https://github.com/yourusername" target="_blank" class="social-link">
                     <svg class="icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     GitHub
                 </a>
-
                 <a href="#" class="social-link">
-                    <!-- Google Scholar SVG Icon (Academic Cap) -->
                     <svg class="icon" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
                     Google Scholar
                 </a>
-
                 <a href="#" class="social-link">
-                    <!-- LinkedIn SVG Icon -->
                     <svg class="icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     LinkedIn
                 </a>
             </div>
         </aside>
 
-        <!-- Right Main Content -->
+        <!-- Main Content Area -->
         <main class="content">
-            <h1>Welcome to My Academic & Engineering World ⚡🤖🌱</h1>
             
-            <p class="bio-text">
-                Welcome to my academic space! My work lies at the intersection of <strong>power systems</strong>, <strong>renewable energy</strong>, and <strong>data-driven engineering</strong>. I focus on how modern power grids can reliably integrate distributed energy resources and storage while enhancing efficiency, reliability, and sustainability.
-            </p>
+            <!-- HOME SECTION -->
+            <section id="home" class="page-section active">
+                <h1>Welcome to Reza's Intelligent Power & Renewable Energy Systems World ⚡🤖🌱</h1>
+                <p class="bio-text">
+                    Welcome to my academic space! My work lies at the intersection of <strong>power systems</strong>, <strong>renewable energy</strong>, and <strong>data-driven energy engineering</strong>. I focus on how modern power grids can reliably integrate distributed energy resources and storage while enhancing efficiency, reliability, and sustainability.
+                </p>
+                <p class="bio-text">
+                    I am a recent M.Sc. graduate in Electrical Engineering – Power Systems from Amirkabir University of Technology (Tehran, Iran), where I worked as a research assistant at the FACTS Laboratory. My research has centered on techno-economic planning of <strong>Mobile Battery Energy Storage Systems</strong> for microgrids and distribution networks, with strong links to smart grids, electric mobility, and sustainable operation.
+                </p>
+                <p class="bio-text">
+                    If you are interested in my background, feel free to explore the tabs above: a structured <strong>CV</strong>, detailed <strong>Research</strong> activities, and a list of my <strong>Publications</strong>.
+                </p>
+            </section>
 
-            <p class="bio-text">
-                I am a recent M.Sc. graduate in Electrical Engineering – Power Systems. I have worked as a research assistant centered on the techno-economic planning of <strong>Mobile Battery Energy Storage Systems</strong> for microgrids and distribution networks, with strong links to smart grids, electric mobility, and sustainable operation.
-            </p>
+            <!-- CV SECTION -->
+            <section id="cv" class="page-section">
+                <h1>Curriculum Vitae</h1>
+                
+                <h2>Education</h2>
+                <div class="cv-item">
+                    <h3>M.Sc. in Electrical Engineering (Power Systems)</h3>
+                    <span class="cv-meta">Amirkabir University of Technology (Tehran Polytechnic) | 2021 - 2024</span>
+                    <p>Thesis: Techno-economic planning of Mobile Battery Energy Storage Systems.</p>
+                </div>
+                <div class="cv-item">
+                    <h3>B.Sc. in Electrical Engineering</h3>
+                    <span class="cv-meta">Your University Name | 2017 - 2021</span>
+                </div>
 
-            <p class="bio-text">
-                If you are interested in my background, feel free to explore the tabs above: a structured <strong>CV</strong>, detailed <strong>Research</strong> activities, and a list of my <strong>Publications</strong>. I also plan to share short notes in the Q&A and Thoughts sections.
-            </p>
+                <h2>Technical Skills</h2>
+                <div class="tag-container">
+                    <span class="tag">MATLAB / Simulink</span>
+                    <span class="tag">Python (Pandas, NumPy)</span>
+                    <span class="tag">GAMS Optimization</span>
+                    <span class="tag">DigSILENT PowerFactory</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Smart Grids</span>
+                </div>
+
+                <h2>Experience</h2>
+                <div class="cv-item">
+                    <h3>Research Assistant</h3>
+                    <span class="cv-meta">FACTS Laboratory, Amirkabir University | 2022 - Present</span>
+                    <p>Conducted research on distribution network resilience and optimization of storage systems.</p>
+                </div>
+            </section>
+
+            <!-- RESEARCH SECTION -->
+            <section id="research" class="page-section">
+                <h1>Research Interests & Projects</h1>
+                <p>My primary research focus is on the modernization of power grids through energy storage integration and intelligent planning.</p>
+
+                <div class="card">
+                    <h3>Mobile Battery Energy Storage Systems (MBESS)</h3>
+                    <p>Investigating the economic feasibility and technical benefits of deploying mobile battery units in distribution networks. This includes routing optimization, sizing, and scheduling to enhance grid resilience during outages.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Microgrid Resilience & Optimization</h3>
+                    <p>Developing algorithms to optimize the operation of isolated and grid-connected microgrids, ensuring stability and minimizing operational costs using advanced optimization techniques.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Data-Driven Energy Management</h3>
+                    <p>Utilizing machine learning and data analytics to predict load patterns and renewable generation, improving the decision-making process for grid operators.</p>
+                </div>
+            </section>
+
+            <!-- PUBLICATIONS SECTION -->
+            <section id="publications" class="page-section">
+                <h1>Publications</h1>
+                <p>Selected list of conference papers and journal articles.</p>
+
+                <div class="card">
+                    <a href="#" class="pub-title">Techno-economic planning of Mobile Battery Energy Storage Systems for Microgrids</a>
+                    <div class="pub-authors"><strong>Seyed Reza Moghadasi</strong>, [Co-Author Name], [Supervisor Name]</div>
+                    <div class="pub-journal">IEEE Transactions on Power Systems (Under Review), 2024</div>
+                </div>
+
+                <div class="card">
+                    <a href="#" class="pub-title">Resilience Enhancement of Distribution Networks using Transportable Energy Storage</a>
+                    <div class="pub-authors"><strong>Seyed Reza Moghadasi</strong>, [Co-Author Name]</div>
+                    <div class="pub-journal">International Conference on Smart Grids (ICSG), 2023</div>
+                </div>
+
+                <div class="card">
+                    <a href="#" class="pub-title">Optimal Scheduling of Distributed Energy Resources in Active Distribution Networks</a>
+                    <div class="pub-authors">[Co-Author Name], <strong>Seyed Reza Moghadasi</strong></div>
+                    <div class="pub-journal">Journal of Energy Storage, 2023</div>
+                </div>
+            </section>
+
         </main>
-
     </div>
+
+    <script>
+        // Simple JavaScript to handle tab switching
+        function switchTab(tabId) {
+            // 1. Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // 2. Remove 'active' class from all nav links
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // 3. Show the selected section
+            const selectedSection = document.getElementById(tabId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+
+            // 4. Highlight the clicked nav link
+            const activeLink = document.getElementById('nav-' + tabId);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        // Handle browser Back/Forward button and initial load with hash
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.substring(1); // Remove '#'
+            if (hash) {
+                switchTab(hash);
+            } else {
+                switchTab('home');
+            }
+        });
+
+        // Check hash on initial page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                switchTab(hash);
+            }
+        });
+    </script>
 
 </body>
 </html>
