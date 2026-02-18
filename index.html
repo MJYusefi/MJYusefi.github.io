@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seyed Reza Moghadasi - Profile</title>
+    <title id="page-title">Profile</title>
     <style>
         /* --- Reset & Base Styles --- */
         * {
@@ -135,6 +135,7 @@
             font-size: 0.9rem;
             color: #6b7280;
             margin-bottom: 0.5rem;
+            white-space: pre-line; /* Allows new lines in text */
         }
 
         .profile-location {
@@ -322,8 +323,9 @@
     <!-- Header -->
     <header>
         <div class="header-content">
+            <!-- Name/Logo updated by JS -->
             <div class="logo" onclick="switchTab('home')">
-                Seyed Reza Moghadasi <span>Intelligent Power & Renewable Energy</span>
+                <span id="header-name"></span> <span id="header-tagline"></span>
             </div>
             <nav>
                 <ul>
@@ -341,28 +343,27 @@
         <!-- Sidebar (Profile) -->
         <aside class="sidebar">
             <div class="profile-pic-container">
-                <!-- Replace with your image file -->
                 <img src="profile.jpg" alt="Profile Photo" class="profile-pic" onerror="this.style.display='none'">
             </div>
             
-            <h2 class="profile-name">Seyed Reza Moghadasi</h2>
-            <p class="profile-role">Researcher - Power & Renewable<br>Energy Systems</p>
-            <p class="profile-location">Babolsar, Iran</p>
+            <h2 class="profile-name" id="sidebar-name"></h2>
+            <p class="profile-role" id="sidebar-role"></p>
+            <p class="profile-location" id="sidebar-location"></p>
 
             <div class="social-links">
-                <a href="mailto:your.email@example.com" class="social-link">
+                <a href="#" class="social-link" id="link-email">
                     <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                     Email
                 </a>
-                <a href="https://github.com/yourusername" target="_blank" class="social-link">
+                <a href="#" target="_blank" class="social-link" id="link-github">
                     <svg class="icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     GitHub
                 </a>
-                <a href="#" class="social-link">
+                <a href="#" class="social-link" id="link-scholar">
                     <svg class="icon" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
                     Google Scholar
                 </a>
-                <a href="#" class="social-link">
+                <a href="#" class="social-link" id="link-linkedin">
                     <svg class="icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     LinkedIn
                 </a>
@@ -374,13 +375,17 @@
             
             <!-- HOME SECTION -->
             <section id="home" class="page-section active">
-                <h1>Welcome to Reza's Intelligent Power & Renewable Energy Systems World ⚡🤖🌱</h1>
+                <h1 id="home-title"></h1> <!-- Updated by JS -->
+                
+                <!-- 👇 EDIT YOUR BIOGRAPHY TEXT HERE 👇 -->
                 <p class="bio-text">
                     Welcome to my academic space! My work lies at the intersection of <strong>power systems</strong>, <strong>renewable energy</strong>, and <strong>data-driven energy engineering</strong>. I focus on how modern power grids can reliably integrate distributed energy resources and storage while enhancing efficiency, reliability, and sustainability.
                 </p>
                 <p class="bio-text">
                     I am a recent M.Sc. graduate in Electrical Engineering – Power Systems from Amirkabir University of Technology (Tehran, Iran), where I worked as a research assistant at the FACTS Laboratory. My research has centered on techno-economic planning of <strong>Mobile Battery Energy Storage Systems</strong> for microgrids and distribution networks, with strong links to smart grids, electric mobility, and sustainable operation.
                 </p>
+                <!-- 👆 END BIOGRAPHY EDIT 👆 -->
+
                 <p class="bio-text">
                     If you are interested in my background, feel free to explore the tabs above: a structured <strong>CV</strong>, detailed <strong>Research</strong> activities, and a list of my <strong>Publications</strong>.
                 </p>
@@ -392,30 +397,24 @@
                 
                 <h2>Education</h2>
                 <div class="cv-item">
-                    <h3>M.Sc. in Electrical Engineering (Power Systems)</h3>
-                    <span class="cv-meta">Amirkabir University of Technology (Tehran Polytechnic) | 2021 - 2024</span>
-                    <p>Thesis: Techno-economic planning of Mobile Battery Energy Storage Systems.</p>
+                    <h3 id="msc-degree"></h3> <!-- Updated by JS -->
+                    <span class="cv-meta" id="msc-uni"></span>
+                    <p id="msc-desc"></p>
                 </div>
                 <div class="cv-item">
-                    <h3>B.Sc. in Electrical Engineering</h3>
-                    <span class="cv-meta">Your University Name | 2017 - 2021</span>
+                    <h3 id="bsc-degree"></h3> <!-- Updated by JS -->
+                    <span class="cv-meta" id="bsc-uni"></span>
                 </div>
 
                 <h2>Technical Skills</h2>
-                <div class="tag-container">
-                    <span class="tag">MATLAB / Simulink</span>
-                    <span class="tag">Python (Pandas, NumPy)</span>
-                    <span class="tag">GAMS Optimization</span>
-                    <span class="tag">DigSILENT PowerFactory</span>
-                    <span class="tag">Machine Learning</span>
-                    <span class="tag">Smart Grids</span>
-                </div>
+                <!-- Skills populated by JS -->
+                <div class="tag-container" id="skills-list"></div>
 
                 <h2>Experience</h2>
                 <div class="cv-item">
-                    <h3>Research Assistant</h3>
-                    <span class="cv-meta">FACTS Laboratory, Amirkabir University | 2022 - Present</span>
-                    <p>Conducted research on distribution network resilience and optimization of storage systems.</p>
+                    <h3 id="exp-role"></h3>
+                    <span class="cv-meta" id="exp-company"></span>
+                    <p id="exp-desc"></p>
                 </div>
             </section>
 
@@ -424,6 +423,7 @@
                 <h1>Research Interests & Projects</h1>
                 <p>My primary research focus is on the modernization of power grids through energy storage integration and intelligent planning.</p>
 
+                <!-- 👇 EDIT RESEARCH ITEMS HERE 👇 -->
                 <div class="card">
                     <h3>Mobile Battery Energy Storage Systems (MBESS)</h3>
                     <p>Investigating the economic feasibility and technical benefits of deploying mobile battery units in distribution networks. This includes routing optimization, sizing, and scheduling to enhance grid resilience during outages.</p>
@@ -438,6 +438,7 @@
                     <h3>Data-Driven Energy Management</h3>
                     <p>Utilizing machine learning and data analytics to predict load patterns and renewable generation, improving the decision-making process for grid operators.</p>
                 </div>
+                <!-- 👆 END RESEARCH EDIT 👆 -->
             </section>
 
             <!-- PUBLICATIONS SECTION -->
@@ -445,6 +446,7 @@
                 <h1>Publications</h1>
                 <p>Selected list of conference papers and journal articles.</p>
 
+                <!-- 👇 EDIT PUBLICATIONS HERE 👇 -->
                 <div class="card">
                     <a href="#" class="pub-title">Techno-economic planning of Mobile Battery Energy Storage Systems for Microgrids</a>
                     <div class="pub-authors"><strong>Seyed Reza Moghadasi</strong>, [Co-Author Name], [Supervisor Name]</div>
@@ -462,53 +464,143 @@
                     <div class="pub-authors">[Co-Author Name], <strong>Seyed Reza Moghadasi</strong></div>
                     <div class="pub-journal">Journal of Energy Storage, 2023</div>
                 </div>
+                <!-- 👆 END PUBLICATIONS EDIT 👆 -->
             </section>
 
         </main>
     </div>
 
     <script>
-        // Simple JavaScript to handle tab switching
+        // =========================================================
+        // ⚙️ CONFIGURATION ZONE ⚙️
+        // Change the text inside the quotes "..." to update your site!
+        // =========================================================
+        
+        const userConfig = {
+            // --- Personal Info ---
+            name: "Mohammad Javad Yusefi",
+            tagline: "Electrical Engineering student", // Appears in header next to name
+            role: "B.Sc. student  in Electrical Engineering", // \n makes a new line
+            location: "Tehran, Iran",
+            
+            // --- Social Links ---
+            email: "mjyusefi01010@gmail.com",
+            github: "https://github.com/MJYusefi",
+            scholar: "#",   // Add your Google Scholar link here
+            linkedin: "https://www.linkedin.com/in/mohammad-javad-yoosefi-656572246/",  // Add your LinkedIn link here
+
+            // --- Home Page ---
+            welcomeTitle: "Welcome to my intrdoction website ⚡🤖🌱",
+
+            // --- CV: Education ---
+            msc: {
+                degree: "B.Sc. in Electrical Engineering (Telecommunications systems)",
+                university: "Sharif University of Technology | 2023 - now",
+                // description: "Thesis: Techno-economic planning of Mobile Battery Energy Storage Systems."
+            },
+            bsc: {
+                degree: "B.Sc. in Electrical Engineering",
+                university: "Sharif University of Technology | 2023 - now"
+            },
+
+            // --- CV: Skills (Add or remove items in this list) ---
+            skills: [
+                "MATLAB",
+                "Python",
+                "Ltspice",
+                "Vivado",
+                "Latex"
+            ],
+
+            // --- CV: Experience ---
+            experience: {
+                role: "Teacher Assistant",
+                // company: "FACTS Laboratory, Amirkabir University | 2022 - Present",
+                // description: "Conducted research on distribution network resilience and optimization of storage systems."
+            }
+        };
+
+        // =========================================================
+        // 🛑 END CONFIGURATION (Do not edit below this line)
+        // =========================================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Inject Personal Info
+            safeSetText('page-title', userConfig.name + " - Profile");
+            safeSetText('header-name', userConfig.name);
+            safeSetText('header-tagline', userConfig.tagline);
+            safeSetText('sidebar-name', userConfig.name);
+            safeSetText('sidebar-role', userConfig.role);
+            safeSetText('sidebar-location', userConfig.location);
+            safeSetText('home-title', userConfig.welcomeTitle);
+
+            // 2. Inject Social Links
+            safeSetHref('link-email', "mailto:" + userConfig.email);
+            safeSetHref('link-github', userConfig.github);
+            safeSetHref('link-scholar', userConfig.scholar);
+            safeSetHref('link-linkedin', userConfig.linkedin);
+
+            // 3. Inject CV - Education
+            safeSetText('msc-degree', userConfig.msc.degree);
+            safeSetText('msc-uni', userConfig.msc.university);
+            safeSetText('msc-desc', userConfig.msc.description);
+            safeSetText('bsc-degree', userConfig.bsc.degree);
+            safeSetText('bsc-uni', userConfig.bsc.university);
+
+            // 4. Inject CV - Experience
+            safeSetText('exp-role', userConfig.experience.role);
+            safeSetText('exp-company', userConfig.experience.company);
+            safeSetText('exp-desc', userConfig.experience.description);
+
+            // 5. Inject Skills
+            const skillsContainer = document.getElementById('skills-list');
+            if (skillsContainer && userConfig.skills) {
+                skillsContainer.innerHTML = ''; // Clear existing
+                userConfig.skills.forEach(skill => {
+                    const span = document.createElement('span');
+                    span.className = 'tag';
+                    span.textContent = skill;
+                    skillsContainer.appendChild(span);
+                });
+            }
+
+            // 6. Handle Navigation (Tabs)
+            const hash = window.location.hash.substring(1);
+            if (hash) switchTab(hash);
+        });
+
+        // Helper function to safely set text content
+        function safeSetText(id, text) {
+            const el = document.getElementById(id);
+            if (el) el.textContent = text;
+        }
+
+        // Helper function to safely set href
+        function safeSetHref(id, url) {
+            const el = document.getElementById(id);
+            if (el) el.href = url;
+        }
+
+        // Tab Switching Logic
         function switchTab(tabId) {
-            // 1. Hide all sections
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(section => section.classList.remove('active'));
 
-            // 2. Remove 'active' class from all nav links
             const navLinks = document.querySelectorAll('nav a');
             navLinks.forEach(link => link.classList.remove('active'));
 
-            // 3. Show the selected section
             const selectedSection = document.getElementById(tabId);
-            if (selectedSection) {
-                selectedSection.classList.add('active');
-            }
+            if (selectedSection) selectedSection.classList.add('active');
 
-            // 4. Highlight the clicked nav link
             const activeLink = document.getElementById('nav-' + tabId);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
+            if (activeLink) activeLink.classList.add('active');
         }
 
-        // Handle browser Back/Forward button and initial load with hash
         window.addEventListener('hashchange', () => {
-            const hash = window.location.hash.substring(1); // Remove '#'
-            if (hash) {
-                switchTab(hash);
-            } else {
-                switchTab('home');
-            }
-        });
-
-        // Check hash on initial page load
-        window.addEventListener('DOMContentLoaded', () => {
             const hash = window.location.hash.substring(1);
-            if (hash) {
-                switchTab(hash);
-            }
+            if (hash) switchTab(hash);
+            else switchTab('home');
         });
     </script>
-
 </body>
 </html>
